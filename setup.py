@@ -25,7 +25,8 @@ setup(
     url='https://github.com/',
     license=license,
     install_requires=load_requires_from_file('requirements.txt'),
-    packages=find_packages(exclude=('tests', 'docs')),
+    packages=find_packages(".", exclude=('tests', 'docs')),
+    include_package_data=True,
     # data_files=[('data', ['dl_jp_geojson/data/prefecture_city.csv']
     #             )
     #            ],
