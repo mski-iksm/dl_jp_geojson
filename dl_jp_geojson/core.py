@@ -280,8 +280,12 @@ class DLGeoJSON:
         # iter for each feature (isolated land block; e.g. island)
         for feature in readjson_dic["features"]:
             coordrow = []
-            lons = np.array(feature["geometry"]["coordinates"])[0].T[0]
-            lats = np.array(feature["geometry"]["coordinates"])[0].T[1]
+            cordinates = np.array(feature["geometry"]["coordinates"])
+            flat_cordinates = [
+                item for cordinate in cordinates for item in cordinate]
+            cordinate_array = np.array(flat_cordinates).T
+            lons = cordinate_array[0]
+            lats = cordinate_array[1]
             coordrow.append(lons.tolist())
             coordrow.append(lats.tolist())
             coordlist.append(coordrow)
