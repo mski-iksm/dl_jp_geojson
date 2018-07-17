@@ -16,13 +16,13 @@ def load_requires_from_file(fname):
 
 setup(
     name='dl_jp_geojson',
-    version='0.0.1',
+    version='0.0.2',
     description='Python library for downloading Japanese prefecture/city\
      boarder geojson files, and import to geopandas table.',
     long_description=readme,
     author='Daiki Ikeshima',
     author_email='9000000000000000091e@gmail.com',
-    url='https://github.com/',
+    url='https://github.com/mski-iksm/dl_jp_geojson',
     license=license,
     install_requires=load_requires_from_file('requirements.txt'),
     packages=find_packages(".", exclude=('tests', 'docs')),
