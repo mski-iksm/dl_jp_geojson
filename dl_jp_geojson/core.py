@@ -13,7 +13,7 @@ class DLGeoJSON:
 
     Library for downloading prefecture/city boarder geojson files of Japan.
 
-    This module search and download prefecture/city boarder line geojson files\
+    This module search and download prefecture/city boarder line geojson files
     from github(https://github.com/niiyz/JapanCityGeoJson).
     Boarder json files will be donloaded to selected directory (default is ./geojson).
     Also, you can import json files to your program as pandas DataFrame.
@@ -59,8 +59,9 @@ class DLGeoJSON:
 
         search_word(wordin, algorithm="or")
             Search geojson files including `wordin` phrase.
+            Both prefecture name and city name is searched.
             Returns found geojson file information in pandas.DataFrame format
-            with columns: ["prefecture_name", "prefecture_code", "city_name", "city_code"].
+                with columns: ["prefecture_name", "prefecture_code", "city_name", "city_code"].
 
             Parameters:
                 - wordin [str or List[str]]
