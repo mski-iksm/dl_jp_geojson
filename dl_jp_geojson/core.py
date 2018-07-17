@@ -218,6 +218,7 @@ class DLGeoJSON:
         c_str = '{0:05d}'.format(c_code)
         url = "https://raw.githubusercontent.com/niiyz/JapanCityGeoJson/master/geojson/{}/{}.json".format(
             p_str, c_str)
+        print("downloading {}".format(url))
         fname = "{}.json".format(c_str)
         urllib.request.urlretrieve(url, "{}/{}".format(self.directory, fname))
         return None
