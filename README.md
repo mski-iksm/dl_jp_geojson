@@ -11,6 +11,18 @@
 
 
 
+## インストール方法
+
+1. gitリポジトリをクローンする
+
+   `git clone https://github.com/mski-iksm/dl_jp_geojson.git `
+
+2. pythonにインストールする
+
+   `python setup.py install`
+
+
+
 ## 使用方法
 
 - 使用例１（geojsonファイルの検索、ダウンロードから読み込みまで自動）
@@ -68,6 +80,18 @@ Boarder json files will be donloaded to selected directory (default is ./geojson
 Also, you can import json files to your program as pandas DataFrame.
 
 
+
+## Installation
+
+1. Clone git repository.
+
+   `git clone https://github.com/mski-iksm/dl_jp_geojson.git `
+
+2. Install to python.
+
+   `python setup.py install`
+
+   
 
 
 ## Examples
