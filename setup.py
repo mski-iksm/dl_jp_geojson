@@ -16,7 +16,7 @@ def load_requires_from_file(fname):
 
 setup(
     name='dl_jp_geojson',
-    version='0.0.3',
+    version='0.0.4',
     description='Python library for downloading Japanese prefecture/city\
      boarder geojson files, and import to geopandas table.',
     long_description=readme,
