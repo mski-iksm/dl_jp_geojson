@@ -189,7 +189,7 @@ class DLGeoJSON:
 
         return founddf[["prefecture_name", "prefecture_code", "city_name", "city_code"]]
 
-    def download_files(self, founddf):
+    def download_files(self, founddf, prefecture_mode=False):
         """download_files(founddf)
             Download geojson files.
             Geojson data specified in each row of `founddf`(pandas.DataFrame returned from search_word()) will be downloaded.
@@ -199,10 +199,16 @@ class DLGeoJSON:
                     Desired geojson information.
                     Return data of search_word() should be specified here.
         """
+        if prefecture_mode is True:
+            founddf = founddf[
+                ["prefecture_name", "prefecture_code"]].drop_duplicates()
 
         for row in founddf.iterrows():
             p_code = row[1]["prefecture_code"]
-            c_code = row[1]["city_code"]
+            if prefecture_mode is False:
+                c_code = row[1]["city_code"]
+            else:
+                c_code = p_code
 
             # check existing files:
             c_str = '{0:05d}'.format(c_code)
@@ -210,9 +216,29 @@ class DLGeoJSON:
             pathfname = "{}/{}".format(self.directory, fname)
             if self.find_directory(pathfname) is False:
                 # download files
-                self.download_json(p_code, c_code)
+                self.download_json(p_code, c_code, prefecture_mode)
         return None
 
+<<<<<<< HEAD
+    def download_json(self, p_code, c_code, prefecture_mode=False):
+        if prefecture_mode is False:
+            p_str = '{0:02d}'.format(p_code)
+            c_str = '{0:05d}'.format(c_code)
+            url = "https://raw.githubusercontent.com/niiyz/JapanCityGeoJson/master/geojson/{}/{}.json".format(
+                p_str, c_str)
+            fname = "{}.json".format(c_str)
+            print(url)
+            urllib.request.urlretrieve(
+                url, "{}/{}".format(self.directory, fname))
+        else:
+            p_str = '{0:02d}'.format(p_code)
+            url = "https://raw.githubusercontent.com/niiyz/JapanCityGeoJson/master/geojson/prefectures/{}.json".format(
+                p_str)
+            fname = "{}.json".format(p_str)
+            print(url)
+            urllib.request.urlretrieve(
+                url, "{}/{}".format(self.directory, fname))
+=======
     def download_json(self, p_code, c_code):
         p_str = '{0:02d}'.format(p_code)
         c_str = '{0:05d}'.format(c_code)
@@ -222,6 +248,7 @@ class DLGeoJSON:
         fname = "{}.json".format(c_str)
         urllib.request.urlretrieve(
             url, "{}/{}".format(self.directory, fname))
+>>>>>>> 969f2232b943f2b5ddaeca43b80d3cfde560a14c
         return None
 
     def import2pandas(self, founddf):
