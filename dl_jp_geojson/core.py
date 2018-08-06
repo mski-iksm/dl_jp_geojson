@@ -219,7 +219,8 @@ class DLGeoJSON:
         url = "https://raw.githubusercontent.com/niiyz/JapanCityGeoJson/master/geojson/{}/{}.json".format(
             p_str, c_str)
         fname = "{}.json".format(c_str)
-        urllib.request.urlretrieve(url, "{}/{}".format(self.directory, fname))
+        urllib.request.urlretrieve(
+            url, "{}/{}".format(self.directory, fname), verify=False)
         return None
 
     def import2pandas(self, founddf):
