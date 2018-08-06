@@ -219,6 +219,7 @@ class DLGeoJSON:
                 self.download_json(p_code, c_code, prefecture_mode)
         return None
 
+<<<<<<< HEAD
     def download_json(self, p_code, c_code, prefecture_mode=False):
         if prefecture_mode is False:
             p_str = '{0:02d}'.format(p_code)
@@ -237,6 +238,17 @@ class DLGeoJSON:
             print(url)
             urllib.request.urlretrieve(
                 url, "{}/{}".format(self.directory, fname))
+=======
+    def download_json(self, p_code, c_code):
+        p_str = '{0:02d}'.format(p_code)
+        c_str = '{0:05d}'.format(c_code)
+        url = "https://raw.githubusercontent.com/niiyz/JapanCityGeoJson/master/geojson/{}/{}.json".format(
+            p_str, c_str)
+        print("downloading {}".format(url))
+        fname = "{}.json".format(c_str)
+        urllib.request.urlretrieve(
+            url, "{}/{}".format(self.directory, fname))
+>>>>>>> 969f2232b943f2b5ddaeca43b80d3cfde560a14c
         return None
 
     def import2pandas(self, founddf):
@@ -300,6 +312,7 @@ class DLGeoJSON:
                 np.array(feature["geometry"]["coordinates"])[0]).T[0]
             lats = np.array(
                 np.array(feature["geometry"]["coordinates"])[0]).T[1]
+
             coordrow.append(lons.tolist())
             coordrow.append(lats.tolist())
             coordlist.append(coordrow)
