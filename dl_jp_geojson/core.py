@@ -220,7 +220,7 @@ class DLGeoJSON:
             p_str, c_str)
         fname = "{}.json".format(c_str)
         urllib.request.urlretrieve(
-            url, "{}/{}".format(self.directory, fname), verify=False)
+            url, "{}/{}".format(self.directory, fname))
         return None
 
     def import2pandas(self, founddf):
