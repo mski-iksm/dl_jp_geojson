@@ -44,7 +44,7 @@ class DLGeoJSON:
                             lons                                               lats
         0     [142.020434228, 142.020442892, 142.020451141, ...  [39.499224532, 39.499222279, 39.499222306, 39....
         1     [142.019816978, 142.019806744, 142.019796498, ...  [39.499232838, 39.499232559, 39.499232586, 39....
-        2     [142.0174893, 142.017482477, 142.017477497, 14...  [39.499561559, 39.499561532, 39.499564, 39.499... 
+        2     [142.0174893, 142.017482477, 142.017477497, 14...  [39.499561559, 39.499561532, 39.499564, 39.499...
 
 
     ------------------------------------------------------------------
@@ -92,13 +92,13 @@ class DLGeoJSON:
             Parameters:
                 - founddf [pandas.DataFrame]
                     Desired geojson information.
-                    Return data of search_word() should be specified here.   
+                    Return data of search_word() should be specified here.
 
             Output pandas format:
                                     lons                                               lats
                 0     [142.020434228, 142.020442892, 142.020451141, ...  [39.499224532, 39.499222279, 39.499222306, 39....
                 1     [142.019816978, 142.019806744, 142.019796498, ...  [39.499232838, 39.499232559, 39.499232586, 39....
-                2     [142.0174893, 142.017482477, 142.017477497, 14...  [39.499561559, 39.499561532, 39.499564, 39.499... 
+                2     [142.0174893, 142.017482477, 142.017477497, 14...  [39.499561559, 39.499561532, 39.499564, 39.499...
 
         read_geo_json(wordin, algorithm="or")
             Method for automatically process search_word(),download_files(), and import2pandas().
@@ -219,7 +219,6 @@ class DLGeoJSON:
                 self.download_json(p_code, c_code, prefecture_mode)
         return None
 
-<<<<<<< HEAD
     def download_json(self, p_code, c_code, prefecture_mode=False):
         if prefecture_mode is False:
             p_str = '{0:02d}'.format(p_code)
@@ -238,17 +237,7 @@ class DLGeoJSON:
             print(url)
             urllib.request.urlretrieve(
                 url, "{}/{}".format(self.directory, fname))
-=======
-    def download_json(self, p_code, c_code):
-        p_str = '{0:02d}'.format(p_code)
-        c_str = '{0:05d}'.format(c_code)
-        url = "https://raw.githubusercontent.com/niiyz/JapanCityGeoJson/master/geojson/{}/{}.json".format(
-            p_str, c_str)
-        print("downloading {}".format(url))
-        fname = "{}.json".format(c_str)
-        urllib.request.urlretrieve(
-            url, "{}/{}".format(self.directory, fname))
->>>>>>> 969f2232b943f2b5ddaeca43b80d3cfde560a14c
+
         return None
 
     def import2pandas(self, founddf):
