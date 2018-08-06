@@ -11,15 +11,32 @@
 
 
 
+## インストール方法
+
+1. gitリポジトリをクローンする
+
+   `git clone https://github.com/mski-iksm/dl_jp_geojson.git `
+
+2. pythonにインストールする
+
+   `python setup.py install`
+
+
+
 ## 使用方法
 
 - 使用例１（geojsonファイルの検索、ダウンロードから読み込みまで自動）
 
 1. パッケージを読み込む
+
    `import dl_jp_geojson as dl`
+
 2. ライブラリをインスタンス化する
+
    `dlgeojson = dl.core.DLGeoJSON()`
+
 3. Geojsonファイルを検索し、見つかったものをすべてダウンロード、pandas.DataFrameで取得する。
+
    `jsondf = dlgeojson.read_geo_json("宮古")`
 
 
@@ -27,14 +44,23 @@
 - 使用例２（手動検索、ダウンロード、読み込み）
 
 1. パッケージを読み込む
+
    `import dl_jp_geojson as dl`
+
 2. ライブラリをインスタンス化する
+
    `dlgeojson = dl.core.DLGeoJSON()`
+
 3. 都道府県名もしくは市町村名でgeojsonを検索する。
+
    `founddf = dlgeojson.search_word("宮古")`
+
 4. geojsonファイルをダウンロードする。
+
    `dlgeojson.download_files(founddf)`
+
 5. ダウンロードしたgeojsonファイルをpandas.DataFrame形式で読み込む。 
+
    `jsondf = dlgeojson.import2pandas(founddf)`
 
 
@@ -68,6 +94,18 @@ Boarder json files will be donloaded to selected directory (default is ./geojson
 Also, you can import json files to your program as pandas DataFrame.
 
 
+
+## Installation
+
+1. Clone git repository.
+
+   `git clone https://github.com/mski-iksm/dl_jp_geojson.git `
+
+2. Install to python.
+
+   `python setup.py install`
+
+   
 
 
 ## Examples

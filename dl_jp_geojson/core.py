@@ -218,6 +218,7 @@ class DLGeoJSON:
         c_str = '{0:05d}'.format(c_code)
         url = "https://raw.githubusercontent.com/niiyz/JapanCityGeoJson/master/geojson/{}/{}.json".format(
             p_str, c_str)
+        print("downloading {}".format(url))
         fname = "{}.json".format(c_str)
         urllib.request.urlretrieve(
             url, "{}/{}".format(self.directory, fname))
@@ -284,6 +285,7 @@ class DLGeoJSON:
                 np.array(feature["geometry"]["coordinates"])[0]).T[0]
             lats = np.array(
                 np.array(feature["geometry"]["coordinates"])[0]).T[1]
+
             coordrow.append(lons.tolist())
             coordrow.append(lats.tolist())
             coordlist.append(coordrow)
