@@ -220,7 +220,8 @@ class DLGeoJSON:
             p_str, c_str)
         print("downloading {}".format(url))
         fname = "{}.json".format(c_str)
-        urllib.request.urlretrieve(url, "{}/{}".format(self.directory, fname))
+        urllib.request.urlretrieve(
+            url, "{}/{}".format(self.directory, fname))
         return None
 
     def import2pandas(self, founddf):
@@ -280,12 +281,11 @@ class DLGeoJSON:
         # iter for each feature (isolated land block; e.g. island)
         for feature in readjson_dic["features"]:
             coordrow = []
-            cordinates = np.array(feature["geometry"]["coordinates"])
-            flat_cordinates = [
-                item for cordinate in cordinates for item in cordinate]
-            cordinate_array = np.array(flat_cordinates).T
-            lons = cordinate_array[0]
-            lats = cordinate_array[1]
+            lons = np.array(
+                np.array(feature["geometry"]["coordinates"])[0]).T[0]
+            lats = np.array(
+                np.array(feature["geometry"]["coordinates"])[0]).T[1]
+
             coordrow.append(lons.tolist())
             coordrow.append(lats.tolist())
             coordlist.append(coordrow)
